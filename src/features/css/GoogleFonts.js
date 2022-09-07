@@ -1,41 +1,56 @@
-import Select from 'react-select'
 import { useState } from 'react'
+import Select from 'react-select'
+import { createGoogleFontUrl } from '../../utils/parsers'
 
-const fontOptions = [
-  {label: 'Montserrat', value: 'montserrat'},
-  {label: 'Sans-serif', value: 'sans-serif'},
-  {label: 'Poppins', value: 'poppins'}
-]
-
-const variantOptions = [
-  {label: '300', value: '300'},
-  {label: '500', value: '500'},
-  {label: '700', value: '700'}
-]
-
-
-const GoogleFonts = () => {
-  const [font, setFont] = useState()
-  const [variant, setVariant] = useState()
-
+const GoogleFonts = ({ setFontForCSS, setImportUrl, fonts, variants }) => {
   
+  // Get data from user input and hold variant options in state
+  const [selectedFont, setSelectedFont] = useState(null)
+  const [selectedVariant, setSelectedVariant] = useState(null)
+  const [variantOptions, setVariantOptions] = useState(null)
+
+  // const [importUrl, setImportUrl] = useState(null)
+  
+  // Set the font value based on user input and get the variants associated with that font
   const handleFontChange = (value) => {
-    setFont(value)
+    setSelectedFont(value)
+    getVariantOptions(value)
   }
 
+  // Set the selected variant(s)
   const handleVariantChange = (value) => {
-    setVariant(value)
+    setSelectedVariant(value)
   }
 
-  console.log(font, variant)
+  const getVariantOptions = (selectedFont) => {
+    const formattedOptions = []
+    // Find the font chosen's variants and store that
+    const fontVariants = variants.find((font) => font.font === selectedFont.label).variants
+    for (const v of fontVariants) {
+      formattedOptions.push({label: v, value: v})
+    }
+    setVariantOptions(formattedOptions)
+  }
+
+
+  const handleClick = (selectedFont, selectedVariant) => {
+    if (selectedFont !== null) {
+      const importUrl = createGoogleFontUrl(selectedFont, selectedVariant)
+      setImportUrl(importUrl)
+      setFontForCSS(selectedFont.label)
+    } else {
+      console.log('No font selected')
+    }
+  }
+  
 
   return (
     <>
-    <h2>Google Fonts</h2>
+    <h3>Google Fonts</h3>
     <section className='google-fonts'> 
-      <Select className='font-selector' options={fontOptions} onChange={handleFontChange} />
-      <Select className='variant-selector' options={variantOptions} onChange={handleVariantChange} />
-      <button className='add-font-btn'>+</button>
+      <Select placeholder='Select font...' className='font-selector' options={fonts} onChange={handleFontChange} />
+      <Select placeholder='Select variant...' className='variant-selector' isMulti options={variantOptions} onChange={handleVariantChange} />
+      <button onClick={() => handleClick(selectedFont, selectedVariant)} className='add-btn'>+</button>
     </section>
     </>
   )
