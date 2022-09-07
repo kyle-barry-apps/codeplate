@@ -62,7 +62,7 @@ export const formatCustomProperties = (customProperties) => {
     const customPropsArray = []
 
     for(const cp of customProperties) {
-      const cpFormatted = `\t--${cp.name}: ${cp.value};`
+      const cpFormatted = `  --${cp.name}: ${cp.value};`
       customPropsArray.push(cpFormatted)
     }  
 

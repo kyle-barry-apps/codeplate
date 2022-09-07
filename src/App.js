@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Header from "./components/Header";
 import MainContainer from "./components/MainContainer";
-
+import { googleFontsAPISecret } from './config';
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBqXacc62dBGuCo7E9WFEJC8sP6IL0Sx4s')
+    fetch(`https://www.googleapis.com/webfonts/v1/webfonts?key=${googleFontsAPISecret}`)
     .then(res => res.json())
     .then(data => parseData(data))
   }, [])  

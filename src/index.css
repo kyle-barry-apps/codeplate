@@ -133,6 +133,7 @@ main .variant-selector {
 }
 
 .css-render {
+  border: 1px solid #E0631B;
   font-family: 'Roboto Mono', monospace;
   margin-top: 3rem;
   height: fit-content;

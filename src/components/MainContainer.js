@@ -9,7 +9,7 @@ const MainContainer = ({ fonts, variants }) => {
   const [fontForCSS, setFontForCSS] = useState(null)
   const [checkedReset, setCheckedReset] = useState(false)
   const [importUrl, setImportUrl] = useState(null)
-  const [cssReset, setCSSreset] = useState('*, \n*::before,\n*::after {\n\tmargin: 0;\n\tpadding: 0;\n\tbox-sizing: border-box;\n}')
+  const [cssReset, setCSSreset] = useState('*, \n*::before,\n*::after {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}')
 
   return (
     <main>

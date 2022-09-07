@@ -26,7 +26,7 @@ const CSSRender = ({ fontForCSS, setFontForCSS, importUrl, setImportUrl, cssRese
       fullCopy += resetForCopy
     }
     if(fontForCSS) {
-      const bodyFontForCopy = `body {\n\tfont-family: '${fontForCSS}', sans-serif;\n}`
+      const bodyFontForCopy = `body {\n  font-family: '${fontForCSS}', sans-serif;\n}`
       fullCopy += bodyFontForCopy
     }
     navigator.clipboard.writeText(fullCopy)
@@ -45,7 +45,7 @@ const CSSRender = ({ fontForCSS, setFontForCSS, importUrl, setImportUrl, cssRese
       {importUrl ? importUrl + '\n\n': null}
       {formattedCustomProperties ? `:root: {\n${formattedCustomProperties}\n}\n\n` : null}
       {checkedReset ? cssReset + '\n\n': null}
-      {fontForCSS ? `body {\n\tfont-family: '${fontForCSS}', sans-serif;\n}`: null}
+      {fontForCSS ? `body {\n  font-family: '${fontForCSS}', sans-serif;\n}`: null}
     </section>
   )
 }
