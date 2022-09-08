@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Select from 'react-select'
 import { createGoogleFontUrl } from '../../utils/parsers'
 
-const GoogleFonts = ({ setFontForCSS, setImportUrl, fonts, variants }) => {
+const GoogleFonts = ({ openToggle, setFontForCSS, setImportUrl, fonts, variants }) => {
   
   // Get data from user input and hold variant options in state
   const [selectedFont, setSelectedFont] = useState(null)
@@ -46,10 +46,10 @@ const GoogleFonts = ({ setFontForCSS, setImportUrl, fonts, variants }) => {
 
   return (
     <>
-    <h3>Google Fonts</h3>
+    <h5 className='google-fonts-title'>Google Fonts</h5>
     <section className='google-fonts'> 
       <Select placeholder='Select font...' className='font-selector' options={fonts} onChange={handleFontChange} />
-      <Select placeholder='Select variant...' className='variant-selector' isMulti options={variantOptions} onChange={handleVariantChange} />
+      <Select placeholder='Select variants...' className='variant-selector' isMulti options={variantOptions} onChange={handleVariantChange} />
       <button onClick={() => handleClick(selectedFont, selectedVariant)} className='add-btn'>+</button>
     </section>
     </>

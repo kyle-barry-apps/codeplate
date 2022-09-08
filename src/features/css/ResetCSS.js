@@ -5,7 +5,7 @@ const ResetCSS = ({ checkedReset, setCheckedReset }) => {
 
   return (
     <section className="css-reset">
-      Include CSS reset?
+      <h5>Include CSS reset?</h5>
       <input onClick={handleClick} type="checkbox" checked={checkedReset}/>
     </section>
   )

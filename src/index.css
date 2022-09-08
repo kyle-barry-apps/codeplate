@@ -12,11 +12,11 @@
 }
 
 :root {
-  --primary-very-dark-blue: #13293D;
-  --primary-dark-blue: #006494;
-  --primary-blue: #247BA0;
-  --primary-light-blue: #1B98E0;
-  --neutral-gray-blue: #E8F1F2;
+  --primary-very-dark: #31293F;
+  --primary-dark: #554D74;
+  --primary-medium: #796EA8;
+  --primary-light: #A6A9C8;
+  --neutral: #D3D9E9;
 }
 
 body {
@@ -25,18 +25,71 @@ body {
 
 nav {
   width: 100vw;
-  min-height: 8vh;
-  padding: 3rem 0rem;
+  min-height: 6vh;
+  padding: 1rem 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  background-color: var(--primary-very-dark);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-nav h1 {
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: 4px;
-  color: var(--primary-very-dark-blue);
+nav img {
+  height: 2rem;
+  width: 2rem;
+  margin-left: 13%;
+}
+
+nav .about {
+  cursor: pointer;
+  font-size: .8rem;
+}
+
+nav .header-btn {
+  padding: .5rem 3rem;
+  text-transform: uppercase;
+  border-radius: .5rem;
+  border: none;
+  background-color: #A6A9C8;
+  color: #fff;
+  letter-spacing: 3px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+nav .header-btn .version {
+  letter-spacing: 1px;
+}
+
+nav .header-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+nav .header-btn::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #554D74;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: .4rem;
+  transform: translateX(-100%);
+  transition: all .2s;
+}
+
+nav .header-btn:active::after {
+  transform: translateX(0%);
+}
+
+nav button span {
+  letter-spacing: 1px;
 }
 
 nav ul {
@@ -45,6 +98,7 @@ nav ul {
 }
 
 nav ul li {
+  margin-left: 2rem;
   margin-right: 2rem;
   overflow: hidden;
 }
@@ -52,7 +106,7 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   font-size: .9rem;
-  color: var(--primary-blue);
+  color: var(--primary-medium);
 }
 
 nav ul li a::after {
@@ -61,7 +115,7 @@ nav ul li a::after {
   margin-top: .2rem;
   width: 100%;
   height: .2rem;
-  background-color: var(--primary-blue);
+  background-color: var(--primary-medium);
   transform: translateX(-101%);
   transition: .2s ease-in;
   border-radius: .2rem;
@@ -72,78 +126,125 @@ nav ul li a:hover::after {
 }
 
 main {
-  border: 1px solid var(--neutral-gray-blue);
-  border-radius: 1rem;
-  max-width: 70rem;
-  min-height: 50rem;
+  max-width: 80%;
+  text-transform: uppercase;
+  min-height: fit-content;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding: 3rem;
+  padding: 2.1rem 1rem 1rem 5rem;
+  background-color: #fff;
+  margin-top: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: .3rem;
+  position: relative;
 }
 
-main h3 {
+
+main .toggle-btn {
+  text-transform: uppercase;
+  color: var(--primary-medium);
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  height: 2rem;
+  align-items: center;
+  font-size: 1rem;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: none;
+  letter-spacing: 1px;
+}
+
+main .toggle-btn span {
+  cursor: pointer;
+}
+
+main .arrow {
+  transition: all .2s;
+}
+
+main h5 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--primary-very-dark);
 }
 
 main .font-selector {
   width: 40%;
+  text-transform: capitalize;
 }
 
 main .variant-selector {
   width: 40%;
+  text-transform: capitalize;
+}
+
+.google-fonts-title {
+  margin-top: 3.5rem;
 }
 
 .google-fonts {
   max-width: 80%;
   display: flex;
   align-items: center;
-  gap: 2%;
+  gap: 1.3rem;
 }
 
 .add-btn {
   width: 2rem;
   height: 2rem;
-  background: linear-gradient(var(--primary-dark-blue), var(--primary-light-blue));
+  background-color: #31293F;
+  border-radius: .2rem;
   color: #E8F1F2;
-  border-radius: 50%;
   font-size: 1.5rem;
   cursor: pointer;
   transition: all .15s;
   border: none;
-  box-shadow: 0 2px 15px rgba(0,0,0,.35);
-
+  box-shadow: 0 2px 5px rgba(49,41,63,.35);
 }
 
 .add-btn:hover {
-  transform: scale(1.05);
   opacity: .8;
 }
 
 .add-btn:active {
   opacity: .6;
+  transform: scale(0.95);
 }
 
 .css-reset {
-  margin-top: 2rem;
   display: flex;
   gap: 1rem;
 }
 
 .css-render {
-  border: 1px solid #E0631B;
+  color: #fff;
   font-family: 'Roboto Mono', monospace;
-  margin-top: 3rem;
-  height: fit-content;
-  background: linear-gradient(120deg, var(--neutral-gray-blue) 2%, var(--primary-light-blue));
-  padding: 3rem;
+  min-height: 18rem;
+  max-width: 80%;
+  margin: 0 auto;
+  background: linear-gradient(45deg, var(--primary-dark), var(--primary-very-dark));
+  padding: 2rem 4rem;
   white-space: pre-wrap;
+  word-break: break-all;
   font-size: .9rem;
   display: flex;
   flex-direction: column;
-  border-radius: 1rem;
+  border-radius: .3rem;
+  margin-top: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  opacity: 0;
+  transition: all .15s;
+}
+
+.css-render.active {
+  opacity: 1;
 }
 
 .reset-btn {
@@ -159,20 +260,29 @@ main .variant-selector {
 }
 
 .custom-properties {
-  gap: 1rem;
+  gap: 1.3rem;
   display: flex;
+  align-items: center;
 }
 
 .custom-property-input {
   height: 2.3rem;
-  width: 31%;
-  padding: 2px 8px;
-  font-size: 1rem;
-  opacity: .7;
+  padding: 3px 8px;
+  font-size: .99rem;
+  border-radius: .2rem;
+  border: 1px solid lightgray;
 }
 
 .btn-container {
   display: flex;
   gap: 1rem;
   align-self: flex-end;
+}
+
+.inactive {
+  display: none;
+}
+
+.inactive-arrow {
+  transform: rotate(180deg);
 }

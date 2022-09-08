@@ -3,6 +3,12 @@ import { FiCopy } from 'react-icons/fi'
 import { formatCustomProperties } from '../../utils/parsers'
 
 const CSSRender = ({ fontForCSS, setFontForCSS, importUrl, setImportUrl, cssReset, checkedReset, setCheckedReset, customProperties, setCustomProperties }) => {
+ 
+  window.addEventListener('keydown', (event) => {
+    if(event.key === 'c' && (event.ctrlKey || event.metaKey)) {
+      copyToClipboard()
+    }
+  });
 
   const handleReset = () => {
     setImportUrl(null)
@@ -36,10 +42,10 @@ const CSSRender = ({ fontForCSS, setFontForCSS, importUrl, setImportUrl, cssRese
   const formattedCustomProperties = formatCustomProperties(customProperties)
 
   return (
-    <section className="css-render">
+    <section className={`${importUrl || formattedCustomProperties || checkedReset || fontForCSS ? 'css-render active' : 'css-render'}`}>
       <div className='btn-container'>
-        <button onClick={copyToClipboard} className='reset-btn'><FiCopy color='#13293D' size={24}/></button>
-        <button onClick={handleReset} className='reset-btn'><BiReset color='#13293D' size={24}/></button>
+        <button onClick={copyToClipboard} className='reset-btn'><FiCopy color='#E0631B' size={24}/></button>
+        <button onClick={handleReset} className='reset-btn'><BiReset color='#E0631B' size={24}/></button>
       </div>
       <br />
       {importUrl ? importUrl + '\n\n': null}

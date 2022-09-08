@@ -3,12 +3,8 @@
 const Header = () => {
   return (
     <nav>
-      <img src="./images/Icon.svg" alt="icon" />
-      <h1>CodePlate</h1>
-      <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      <a href="#" className="header-btn"><span>CodePlate</span> <span className="version">V.0.1</span></a>
+      <a className="about">About</a>
     </nav>
   )
 }
