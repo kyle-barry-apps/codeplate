@@ -26,7 +26,13 @@ const GoogleFonts = ({ openToggle, setFontForCSS, setImportUrl, fonts, variants 
     const formattedOptions = []
     // Find the font chosen's variants and store that
     const fontVariants = variants.find((font) => font.font === selectedFont.label).variants
-    for (const v of fontVariants) {
+    for (let v of fontVariants) {
+      if(v === 'regular') {
+        v = '400'
+      }
+      if(v === 'italic') {
+        v = '400italic'
+      }
       formattedOptions.push({label: v, value: v})
     }
     setVariantOptions(formattedOptions)

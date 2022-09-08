@@ -33,8 +33,8 @@ const CustomProperties = ({ customProperties, setCustomProperties }) => {
     <>
     <h5>Custom Properties</h5>    
     <section className="custom-properties">
-      <input ref={nameRef} value={cpName} onChange={handleNameChange} type="text" placeholder='Name...' className="custom-property-input" />
-      <input value={cpValue} onChange={handleValueChange} type="text" placeholder='Value...' className="custom-property-input"/>
+      <input ref={nameRef} value={cpName} onChange={handleNameChange} type="text" placeholder='e.g. primary-dark' className="custom-property-input" />
+      <input value={cpValue} onChange={handleValueChange} type="text" placeholder='e.g. #554D74' className="custom-property-input"/>
       <button onClick={handleAddProp} className='add-btn'>+</button>    
     </section>
     </>

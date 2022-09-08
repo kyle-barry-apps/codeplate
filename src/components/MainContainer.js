@@ -14,9 +14,10 @@ const MainContainer = ({ fonts, variants }) => {
 
   return (
     <>
+    <div className="clipboard-message">CSS copied to clipboard!</div>
     <main>
-      <button onClick={() => setOpenToggle(!openToggle)} className="toggle-btn">CSS Template<span><img className={`${openToggle ? 'arrow' : 'arrow inactive-arrow'}`} src="./images/arrow-down-3101.png" alt="arrow down image"/></span></button>
-      <div className={openToggle ? '' : 'inactive'}>
+      <button onClick={() => setOpenToggle(!openToggle)} className="toggle-btn">CSS Settings<span><img className={`${openToggle ? 'arrow' : 'arrow inactive-arrow'}`} src="./images/arrow-down-3101.png" alt="arrow down image"/></span></button>
+      <div className={openToggle ? 'main-active' : 'inactive'}>
         <GoogleFonts active={openToggle} setFontForCSS={setFontForCSS} setImportUrl={setImportUrl} fonts={fonts} variants={variants}/>
         <CustomProperties active={openToggle} customProperties={customProperties} setCustomProperties={setCustomProperties}/> 
         <ResetCSS active={openToggle} checkedReset={checkedReset} setCheckedReset={setCheckedReset}/>

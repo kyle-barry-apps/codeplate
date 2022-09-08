@@ -25,7 +25,7 @@ body {
 
 nav {
   width: 100vw;
-  min-height: 6vh;
+  min-height: 8vh;
   padding: 1rem 4rem;
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@ nav {
   background-color: var(--primary-very-dark);
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 nav img {
@@ -45,20 +45,23 @@ nav img {
 nav .about {
   cursor: pointer;
   font-size: .8rem;
+  letter-spacing: 2px;
 }
 
 nav .header-btn {
-  padding: .5rem 3rem;
+  font-size: .9rem;
+  padding: .3rem 1rem;
   text-transform: uppercase;
-  border-radius: .5rem;
+  border-radius: .3rem;
   border: none;
-  background-color: #A6A9C8;
+  background-color: rgba(211, 217, 233, .3);
   color: #fff;
   letter-spacing: 3px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  font-weight: 500;
 }
 
 nav .header-btn .version {
@@ -74,18 +77,18 @@ nav .header-btn::after {
   content: '';
   display: block;
   position: absolute;
-  background-color: #554D74;
+  background-color: var(--primary-light);
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
-  border-radius: .4rem;
-  transform: translateX(-100%);
+  border-radius: .3rem;
+  transform: scale(0);
   transition: all .2s;
 }
 
 nav .header-btn:active::after {
-  transform: translateX(0%);
+  transform: scale(1)
 }
 
 nav button span {
@@ -125,10 +128,34 @@ nav ul li a:hover::after {
   transform: translateX(0);
 }
 
+.clipboard-message {
+  background-color: #D3D9E9;
+  width: 18rem;
+  text-align: center;
+  font-size: .8rem;
+  padding: 1rem 2rem;
+  border-radius: .3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0;
+  transform: scale(0);
+  transition: all .5s;
+  position: absolute;
+  top: 1rem;
+  left: 40%;
+}
+
+.clipboard-message.active {
+  opacity: .8;
+  transform: scale(1);
+  z-index: 100;
+}
+
 main {
   max-width: 80%;
+  max-height: fit-content;
   text-transform: uppercase;
-  min-height: fit-content;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -157,9 +184,6 @@ main .toggle-btn {
   position: absolute;
   border: none;
   letter-spacing: 1px;
-}
-
-main .toggle-btn span {
   cursor: pointer;
 }
 
@@ -181,12 +205,12 @@ main .font-selector {
 }
 
 main .variant-selector {
-  width: 40%;
+  width: 60%;
   text-transform: capitalize;
 }
 
 .google-fonts-title {
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
 }
 
 .google-fonts {
@@ -194,6 +218,7 @@ main .variant-selector {
   display: flex;
   align-items: center;
   gap: 1.3rem;
+  transition: all .15s;
 }
 
 .add-btn {
@@ -218,10 +243,68 @@ main .variant-selector {
   transform: scale(0.95);
 }
 
-.css-reset {
+.css-reset { 
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 1rem; 
+  transition: all .15s;
 }
+
+.checkbox-container {
+  height: 1rem;
+  width: 1rem;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1rem;
+  width: 1rem;
+  background-color: #D3D9E9;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: var(--primary-medium);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--primary-dark);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  text-align: center;
+  left: 25%;
+  right: 0;
+  top: 25%;
+  bottom: 0;
+  height: .5rem;
+  width: .5rem;
+  background-color: var(--primary-light)
+}
+
 
 .css-render {
   color: #fff;
@@ -229,7 +312,7 @@ main .variant-selector {
   min-height: 18rem;
   max-width: 80%;
   margin: 0 auto;
-  background: linear-gradient(45deg, var(--primary-dark), var(--primary-very-dark));
+  background: linear-gradient(90deg, var(--primary-medium), var(--primary-light));
   padding: 2rem 4rem;
   white-space: pre-wrap;
   word-break: break-all;
@@ -240,7 +323,7 @@ main .variant-selector {
   margin-top: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   opacity: 0;
-  transition: all .15s;
+  transition: all .25s;
 }
 
 .css-render.active {
@@ -252,7 +335,7 @@ main .variant-selector {
   border: none;
   align-self: flex-end;
   cursor: pointer;
-  transition: all .15s;
+  transition: all .25s;
 }
 
 .reset-btn:active {
@@ -263,6 +346,7 @@ main .variant-selector {
   gap: 1.3rem;
   display: flex;
   align-items: center;
+  transition: all .25s;
 }
 
 .custom-property-input {
@@ -279,10 +363,17 @@ main .variant-selector {
   align-self: flex-end;
 }
 
+.main-active {
+  transition: all 1s ease-in-out;
+  opacity: 1;
+}
+
 .inactive {
-  display: none;
+  opacity: 0;
+  height: 0;
 }
 
 .inactive-arrow {
   transform: rotate(180deg);
 }
+
