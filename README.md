@@ -14,7 +14,7 @@ CodePlate is a web-based application that allows users to quickly and easily gen
 
 ### Built with
 
-React
+React <br />
 Google Fonts API
 
 ### Continued development
