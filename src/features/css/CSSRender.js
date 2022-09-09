@@ -1,24 +1,24 @@
+import { useEffect } from 'react'
 import { BiReset } from 'react-icons/bi'
 import { FiCopy } from 'react-icons/fi'
 import { formatCustomProperties } from '../../utils/parsers'
 
 const CSSRender = ({ fontForCSS, setFontForCSS, importUrl, setImportUrl, cssReset, checkedReset, setCheckedReset, customProperties, setCustomProperties }) => {
 
-  const clipboardMessage = document.querySelector('.clipboard-message') 
+  // const clipboardMessage = document.querySelector('.clipboard-message') 
 
-  const clipboardInactive = () => {
-    clipboardMessage.classList.remove('active')
-  }
+  // const clipboardInactive = () => {
+  //   clipboardMessage.classList.remove('active')
+  // }
 
-  window.addEventListener('keydown', (event) => {
+  // window.addEventListener('keydown', (event) => {
 
-    if(event.key === 'c' && (event.ctrlKey || event.metaKey)) {
-      copyToClipboard()
-      clipboardMessage.classList.add('active')
-      setTimeout(clipboardInactive, 2000)
- 
-    }
-  });
+  //   if(event.key === 'c' && (event.ctrlKey || event.metaKey)) {
+  //     copyToClipboard()
+  //     clipboardMessage.classList.add('active')
+  //     setTimeout(clipboardInactive, 2000)
+  //   }
+  // });
 
 
   const handleReset = () => {
@@ -47,8 +47,8 @@ const CSSRender = ({ fontForCSS, setFontForCSS, importUrl, setImportUrl, cssRese
       fullCopy += bodyFontForCopy
     }
     navigator.clipboard.writeText(fullCopy)
-    clipboardMessage.classList.add('active')
-    setTimeout(clipboardInactive, 2000)
+    // clipboardMessage.classList.add('active')
+    // setTimeout(clipboardInactive, 2000)
   }
 
   const formattedCustomProperties = formatCustomProperties(customProperties)
