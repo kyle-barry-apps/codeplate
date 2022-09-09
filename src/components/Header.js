@@ -1,10 +1,10 @@
-
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
     <nav>
-      <a href="#" className="header-btn"><span>CodePlate</span> <span className="version">V.0.1</span></a>
-      <a className="about">About</a>
+      <NavLink to="/" className="header-btn"><span>CodePlate</span> <span className="version">V.0.1</span></NavLink>
+      <NavLink to="/about" activeClassName='selected' className='about'>About</NavLink>
     </nav>
   )
 }

@@ -39,7 +39,8 @@ const GoogleFonts = ({ openToggle, setFontForCSS, setImportUrl, fonts, variants 
   }
 
 
-  const handleClick = (selectedFont, selectedVariant) => {
+  const handleClick = (e, selectedFont, selectedVariant) => {
+    e.preventDefault()
     if (selectedFont !== null) {
       const importUrl = createGoogleFontUrl(selectedFont, selectedVariant)
       setImportUrl(importUrl)
@@ -52,12 +53,14 @@ const GoogleFonts = ({ openToggle, setFontForCSS, setImportUrl, fonts, variants 
 
   return (
     <>
-    <h5 className='google-fonts-title'>Google Fonts</h5>
+    <h5 className='google-fonts-title'>Google Fonts</h5> 
+    <form onSubmit={(e) => handleClick(e, selectedFont, selectedVariant)}>
     <section className='google-fonts'> 
-      <Select placeholder='Select font...' className='font-selector' options={fonts} onChange={handleFontChange} />
-      <Select placeholder='Select variants...' className='variant-selector' isMulti options={variantOptions} onChange={handleVariantChange} />
-      <button onClick={() => handleClick(selectedFont, selectedVariant)} className='add-btn'>+</button>
+        <Select placeholder='Select font...' className='font-selector' options={fonts} onChange={handleFontChange} />
+        <Select placeholder='Select variants...' className='variant-selector' isMulti options={variantOptions} onChange={handleVariantChange} />
+        <button onClick={() => handleClick(selectedFont, selectedVariant)} className='add-btn'>+</button>
     </section>
+    </form>
     </>
   )
 }

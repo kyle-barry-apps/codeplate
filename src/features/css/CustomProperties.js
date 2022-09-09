@@ -17,7 +17,8 @@ const CustomProperties = ({ customProperties, setCustomProperties }) => {
     setNewCustomProp({...newCustomProp, value: e.target.value})  
   }
 
-  const handleAddProp = () => {
+  const handleAddProp = (e) => {
+    e.preventDefault()
     if(cpName && cpValue) {
       setCustomProperties(current => [...current, newCustomProp])
       setCPName('')
@@ -31,12 +32,14 @@ const CustomProperties = ({ customProperties, setCustomProperties }) => {
 
   return (
     <>
-    <h5>Custom Properties</h5>    
-    <section className="custom-properties">
-      <input ref={nameRef} value={cpName} onChange={handleNameChange} type="text" placeholder='e.g. primary-dark' className="custom-property-input" />
-      <input value={cpValue} onChange={handleValueChange} type="text" placeholder='e.g. #554D74' className="custom-property-input"/>
-      <button onClick={handleAddProp} className='add-btn'>+</button>    
-    </section>
+    <h5>Custom Properties</h5>
+    <form onSubmit={(e) => handleAddProp(e)}>
+      <section className="custom-properties">
+        <input ref={nameRef} value={cpName} onChange={handleNameChange} type="text" placeholder='e.g. primary-dark' className="custom-property-input" />
+        <input value={cpValue} onChange={handleValueChange} type="text" placeholder='e.g. #554D74' className="custom-property-input"/>
+        <button onClick={handleAddProp} className='add-btn'>+</button>    
+      </section>
+    </form>    
     </>
   )
 }

@@ -5,7 +5,7 @@ const ResetCSS = ({ checkedReset, setCheckedReset }) => {
 
   return (
     <section className="css-reset">
-      <h5>Include CSS reset?</h5>
+      <h5>Add CSS reset?</h5>
       <label className="checkbox-container">
         <input onClick={handleClick} type="checkbox" checked={checkedReset}/>
         <span className="checkmark"></span>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 
@@ -25,7 +26,7 @@ body {
 
 nav {
   width: 100vw;
-  min-height: 8vh;
+  height: 8vh;
   padding: 1rem 4rem;
   display: flex;
   align-items: center;
@@ -33,7 +34,7 @@ nav {
   background-color: var(--primary-very-dark);
   color: #fff;
   text-transform: uppercase;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
 }
 
 nav img {
@@ -46,6 +47,17 @@ nav .about {
   cursor: pointer;
   font-size: .8rem;
   letter-spacing: 2px;
+  text-decoration: none;
+  color: #fff;
+  transition: opacity .15s;
+}
+
+nav .about.active {
+  color: var(--primary-medium);
+}
+
+nav .about:hover {
+  opacity: .8;
 }
 
 nav .header-btn {
@@ -133,11 +145,12 @@ nav ul li a:hover::after {
   width: 18rem;
   text-align: center;
   font-size: .8rem;
-  padding: 1rem 2rem;
+  padding: .5rem 2rem;
   border-radius: .3rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 500;
+  font-size: .8rem;
   opacity: 0;
   transform: scale(0);
   transition: all .5s;
@@ -222,9 +235,10 @@ main .variant-selector {
 }
 
 .add-btn {
-  width: 2rem;
-  height: 2rem;
-  background-color: #31293F;
+  margin-left: -.8rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  background-color: var(--primary-medium);
   border-radius: .2rem;
   color: #E8F1F2;
   font-size: 1.5rem;
@@ -312,7 +326,9 @@ main .variant-selector {
   min-height: 18rem;
   max-width: 80%;
   margin: 0 auto;
-  background: linear-gradient(90deg, var(--primary-medium), var(--primary-light));
+  margin-bottom: 5rem;
+  background-color: var(--primary-medium);
+  /* background: linear-gradient(90deg, var(--primary-medium), var(--primary-light)); */
   padding: 2rem 4rem;
   white-space: pre-wrap;
   word-break: break-all;
@@ -324,21 +340,78 @@ main .variant-selector {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   opacity: 0;
   transition: all .25s;
+  visibility: hidden;
 }
 
 .css-render.active {
   opacity: 1;
+  visibility: visible;
 }
 
-.reset-btn {
+.reset-btn, .copy-btn {
   background-color: transparent;
   border: none;
   align-self: flex-end;
   cursor: pointer;
   transition: all .25s;
+  position: relative;
 }
 
-.reset-btn:active {
+.reset-btn::before {
+  content: 'Clear CSS';
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .2rem .5rem;
+  width: 5rem;
+  border-radius: .2rem;
+  opacity: 0;
+  height: 1.5rem;
+  font-size: .8rem;
+  background-color: var(--neutral);
+  color: var(--primary-very-darks);
+  position: absolute;
+  bottom: -1.8rem;
+  left: -1.5rem;
+  transition: opacity .25s;
+}
+
+.reset-btn:hover::before {
+  opacity: .98;
+}
+
+.copy-btn::before { 
+  content: 'Copy to Clipboard';
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .2rem .5rem;
+  width: 8rem;
+  border-radius: .2rem;
+  opacity: 0;
+  height: 1.5rem;
+  font-size: .8rem;
+  background-color: var(--neutral);
+  color: var(--primary-very-darks);
+  position: absolute;
+  bottom: -1.8rem;
+  left: -3rem;
+  transition: opacity .25s;
+}
+
+.copy-btn:hover::before {
+  opacity: .98;
+}
+
+
+.reset-btn:hover, .copy-btn:hover {
+  opacity: .7;
+}
+
+.reset-btn:active, .copy-btn:active {
+  opacity: .7;
   transform: scale(.9)
 }
 
@@ -350,11 +423,16 @@ main .variant-selector {
 }
 
 .custom-property-input {
+  width: 20rem;
   height: 2.3rem;
   padding: 3px 8px;
   font-size: .99rem;
   border-radius: .2rem;
   border: 1px solid lightgray;
+}
+
+.custom-property-input::placeholder {
+  opacity: .8;
 }
 
 .btn-container {
@@ -364,7 +442,7 @@ main .variant-selector {
 }
 
 .main-active {
-  transition: all 1s ease-in-out;
+  transition: all .5s ease-in-out;
   opacity: 1;
 }
 
@@ -377,3 +455,131 @@ main .variant-selector {
   transform: rotate(180deg);
 }
 
+/* About page styling */
+.about-container {
+  max-width: 80%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: #fff;
+  margin-top: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: .3rem;
+}
+
+.about-container p, .about-container ul li {
+  font-size: .85rem;
+}
+
+.about-container ul li {
+  margin-left: 2rem;
+}
+
+.line-with-balls {
+  max-height: 80%;
+  width: 2px;
+  background-color: #31293F;
+  position: relative;
+}
+
+.ball1, .ball2 {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: var(--primary-very-dark);
+  opacity: 1;
+  outline: 1px solid var(--primary-very-dark);
+  border: 1px solid white;
+}
+
+.ball1 {
+  top: 5.8rem;
+  left: -.45rem;
+}
+
+.ball2 {
+  top: 15.5rem;
+  left: -.45rem;
+}
+
+.content-container {
+  padding: 3rem 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.about-contact {
+ display: flex; 
+ flex-direction: column;
+ padding: 2rem 1rem;
+ gap: 1rem;
+ min-width: 30%;
+}
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem;
+  gap: 1rem;
+}
+
+.api-link {
+  text-decoration: none;
+  color: var(--primary-light);
+}
+
+
+
+
+
+
+
+@media (max-width: 850px) {
+  .google-fonts {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  main .font-selector, main .variant-selector {
+    width: 100%;
+  }
+
+  .custom-properties {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .custom-property-input {
+    width: 80%;
+  }
+  .add-btn {
+    margin-left: 0;
+  }
+
+  .css-render {
+    padding: 2rem;
+  }
+
+  .content-container {
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .about-contact {
+    padding: 0;
+  }  
+  .line-with-balls {
+    width: 100%;
+    align-self: center;
+    height: 2px;
+  }
+
+  .ball1, .ball2 {
+    display: none;
+  }
+
+  .about-details {
+    padding: 0;
+  }
+}

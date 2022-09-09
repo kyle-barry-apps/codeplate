@@ -1,6 +1,9 @@
 export const createGoogleFontUrl = (font, variants) => {
   // extract font family name from font object
-  const fontName = font.label
+  let fontName = font.label
+  if(fontName.split(' ').length > 1) {
+    fontName = fontName.split(' ').join('+')
+  }
   // set empty string to populate for the full variant details
   // if any of the fonts are italicized, the logic will be different for parsing
   let fullVariantString = ''

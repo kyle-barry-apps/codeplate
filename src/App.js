@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import Header from "./components/Header";
 import MainContainer from "./components/MainContainer";
 import { googleFontsAPISecret } from './config';
+import About from './pages/About';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
 
@@ -27,10 +29,13 @@ function App() {
 
 
   return (
-    <>
+    <Router>
       <Header />
-      <MainContainer fonts={fonts} variants={variants}/>
-    </>
+      <Routes>
+        <Route path="/" element={<MainContainer fonts={fonts} variants={variants}/>}/>
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
   );
 }
 

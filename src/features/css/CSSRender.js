@@ -47,7 +47,8 @@ const CSSRender = ({ fontForCSS, setFontForCSS, importUrl, setImportUrl, cssRese
       fullCopy += bodyFontForCopy
     }
     navigator.clipboard.writeText(fullCopy)
-
+    clipboardMessage.classList.add('active')
+    setTimeout(clipboardInactive, 2000)
   }
 
   const formattedCustomProperties = formatCustomProperties(customProperties)
@@ -55,8 +56,8 @@ const CSSRender = ({ fontForCSS, setFontForCSS, importUrl, setImportUrl, cssRese
   return (
     <section className={`${importUrl || formattedCustomProperties || checkedReset || fontForCSS ? 'css-render active' : 'css-render'}`}>
       <div className='btn-container'>
-        <button onClick={copyToClipboard} className='reset-btn'><FiCopy color='#31293F' size={30}/></button>
-        <button onClick={handleReset} className='reset-btn'><BiReset color='#31293F' size={30}/></button>
+        <button onClick={copyToClipboard} className='copy-btn'><FiCopy color='#fff' size={30}/></button>
+        <button onClick={handleReset} className='reset-btn'><BiReset color='#fff' size={30}/></button>
       </div>
       <br />
       {importUrl ? importUrl + '\n\n': null}
