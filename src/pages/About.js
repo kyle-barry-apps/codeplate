@@ -13,7 +13,7 @@ const About = () => {
           <div className="ball2"></div>
         </div>
         <div className="about-details">
-          <p>CodePlate is built on <span style={{fontWeight: 500, color: '#31293F'}}>React</span> and designed to make setting up coding projects quicker and easier.</p>
+          <p>CodePlate is built on <span style={{fontWeight: 500, color: '#31293F'}}>React</span> and designed to make setting up coding projects quicker and easier. It's also been a way for me to practice my web dev skills.</p>
           <h4 style={{color: '#31293F'}}>V.0.1</h4>
           <p>CSS boilerplate</p>
           <ul>

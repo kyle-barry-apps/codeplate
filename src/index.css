@@ -319,6 +319,13 @@ main .variant-selector {
   background-color: var(--primary-light)
 }
 
+.ctc-message {
+  font-size: .6rem;
+  text-align: right;
+  text-transform: lowercase;
+  color: var(--primary-dark);
+}
+
 
 .css-render {
   color: #fff;
@@ -565,7 +572,7 @@ main .variant-selector {
     flex-direction: column;
     padding: 0;
   }
-  
+
   .about-contact {
     padding: 0;
   }  

@@ -21,6 +21,8 @@ const MainContainer = ({ fonts, variants }) => {
         <GoogleFonts active={openToggle} setFontForCSS={setFontForCSS} setImportUrl={setImportUrl} fonts={fonts} variants={variants}/>
         <CustomProperties active={openToggle} customProperties={customProperties} setCustomProperties={setCustomProperties}/> 
         <ResetCSS active={openToggle} checkedReset={checkedReset} setCheckedReset={setCheckedReset}/>
+
+        <p className="ctc-message">*Press Ctrl-c anywhere to copy CSS</p>
       </div>
     </main>
     <CSSRender setImportUrl={setImportUrl} setCSSreset={setCSSreset} checkedReset={checkedReset} setCheckedReset={setCheckedReset} cssReset={cssReset} importUrl={importUrl} fontForCSS={fontForCSS} setFontForCSS={setFontForCSS} customProperties={customProperties} setCustomProperties={setCustomProperties}/>
