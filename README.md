@@ -1,3 +1,5 @@
+Live site: https://codeplate.co/
+
 # CodePlate
 
 Web application to quickly generate boilerplate code
