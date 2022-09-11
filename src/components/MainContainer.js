@@ -4,6 +4,7 @@ import ResetCSS from "../features/css/ResetCSS"
 import CSSRender from "../features/css/CSSRender"
 import CustomProperties from "../features/css/CustomProperties"
 
+
 const MainContainer = ({ fonts, variants }) => {
   const [openToggle, setOpenToggle] = useState(true)
   const [customProperties, setCustomProperties] = useState([])
