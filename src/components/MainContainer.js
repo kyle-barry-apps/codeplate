@@ -16,7 +16,7 @@ const MainContainer = ({ fonts, variants }) => {
     <>
     <div className="clipboard-message">CSS copied to clipboard!</div>
     <main>
-      <button onClick={() => setOpenToggle(!openToggle)} className="toggle-btn">CSS Settings<span><img className={`${openToggle ? 'arrow' : 'arrow inactive-arrow'}`} src="./images/arrow-down-3101.png" alt="arrow down image"/></span></button>
+      <button onClick={() => setOpenToggle(!openToggle)} className="toggle-btn">CSS Boilerplate<span><img className={`${openToggle ? 'arrow' : 'arrow inactive-arrow'}`} src="./images/arrow-down-3101.png" alt="arrow down image"/></span></button>
       <div className={openToggle ? 'main-active' : 'inactive'}>
         <GoogleFonts active={openToggle} setFontForCSS={setFontForCSS} setImportUrl={setImportUrl} fonts={fonts} variants={variants}/>
         <CustomProperties active={openToggle} customProperties={customProperties} setCustomProperties={setCustomProperties}/> 
