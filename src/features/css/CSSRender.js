@@ -61,7 +61,7 @@ const CSSRender = ({ fontForCSS, setFontForCSS, importUrl, setImportUrl, cssRese
       </div>
       <br />
       {importUrl ? importUrl + '\n\n': null}
-      {formattedCustomProperties ? `:root: {\n${formattedCustomProperties}\n}\n\n` : null}
+      {formattedCustomProperties ? `:root {\n${formattedCustomProperties}\n}\n\n` : null}
       {checkedReset ? cssReset + '\n\n': null}
       {fontForCSS ? `body {\n  font-family: '${fontForCSS}', sans-serif;\n}`: null}
     </section>
